@@ -15,6 +15,10 @@ const Repository = React.lazy(() =>
 	new Promise((r, t) => setTimeout(r, 650)).then(res => import('../pages/OpenSrc'))
 );
 
+const Project = React.lazy(() =>
+	new Promise((r, t) => setTimeout(r, 650)).then(res => import('../pages/Project'))
+);
+
 export default function Router() {
 	return (
 		<Routing>
@@ -24,6 +28,7 @@ export default function Router() {
 					<Route path="/" element={<Index />} />
 					<Route path="/articles" element={<Article />} />
 					<Route path="/repository" element={<Repository />} />
+					<Route path="/projects" element={<Project />} />
 				</Routes>
 			</React.Suspense>
 		</Routing>
