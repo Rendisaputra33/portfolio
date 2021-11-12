@@ -1,6 +1,7 @@
 import * as Chakra from '@chakra-ui/react';
 import React from 'react';
 import useRequest from '../hooks/useRequest';
+import CardSkeleton from './components/Skeleton';
 import { Repo } from './fragments/Repo.Fragments';
 
 const url = 'https://rendi-server.herokuapp.com/api/projects';
@@ -27,6 +28,7 @@ export default function Repository(props) {
 				</Chakra.Text>
 			</Chakra.Stack>
 			<Chakra.Stack spacing={4} marginBottom={6}>
+				{!response && <CardSkeleton />}
 				{response &&
 					response.map((repo, index) => (
 						<Repo
